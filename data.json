@@ -1,0 +1,34 @@
+{
+  "foodbank": [
+    {
+      "name": "linguine alle vongole",
+      "ingredients": ["linguine", "white wine", "clams", "garlic", "english parsley", "chilli flakes", "cherry tomatoes", "olive oil"],
+      "method": ["Boil your linguine in hot water until al dente, strain and set aside.","Wash the clams in cold water, rinse often to get rid of sand and grit.", "Saute garlics,chilli flakes, and cherry tomatoes in olive oil until fragrant.", "Add in the clams, give them a light stir then pour in the white wine.", "Lightly season before closing the pan with a lid, allowing the clams to steam in the white wine broth.", "Once the clams are cooked, add in the linguine and season.", "Finish with chopped parsley, and serve."],
+      "imgUrl": "https://britishop.com/storage/imgcache/linguine-with-clams__1000x600xauto.jpg"
+    },
+    {
+      "name": "butter chicken",
+      "ingredients": ["yoghurt", "lemon juice", "turmeric powder", "garam masala", "chilli powder", "cumin powder", "ginger", "garlic", "chicken thigh fillet", "ghee", "tomato puree", "fresh cream", "sugar", "salt"],
+      "method": ["Combine the yoghurt, lemon juice, turmeric powder, garam masal, chilli powder, cumin powder, ginger and garlic with the chicken in a bowl. (minimum 3 hrs)", "Heat the ghee (butter or oil) over high heat in a large fry pan.", "Place chicken in the fry pan and cook for around 3 minutes, or until the chicken is white all over.", "Add the tomato passata, cream, sugar and salt. Also add any remaining marinade left in the bowl. Turn down to low and simmer for 20 minutes. Do a taste test to see if it needs more salt.", "Garnish with coriander/cilantro leaves if using. Serve with basmati rice."],
+      "imgUrl": "https://www.licious.in/blog/wp-content/uploads/2020/10/butter-chicken-.jpg"
+    },
+    {
+      "name": "nasi goreng tom yam",
+      "ingredients": ["jasmine rice", "carrot", "spring onion", "garlic", "chicken thigh fillet w/ skin on", "light soy sauce", "tom yam paste", "kaffir lime leaf", "fresh coriander", "salt", "white pepper", "fresh chilli", "corn starch"],
+      "method": ["Prepare your rice. Using cold leftover rice that has been refridgerated overnight is highly recommended.", "Take off the skin from the chicken thighs and keep them aside. Cut the chicken thigh into strips and marinade them in soy sauce, white pepper and corn starch.", "Cook the chicken on a pan and then set aside", "*Chef Tip*: Using low heat on a pan, add oil and the chicken skin to render out the fat and use it for stir frying. Leave the chicken skin aside after.", "Add in the onion, garlic, fresh chillies, thinly sliced kaffir lime leaves, tom yam paste, and stir fry until fragrant", "Add in the cold rice, break them apart as you stir fry.", "Season with light soy sauce, salt, and white pepper. Finish with fresh coriander."],
+      "imgUrl": "https://www.spicemountain.co.uk/wp-content/uploads/2019/10/tom-yum-fried-rice.jpg "
+    },
+    {
+      "name": "creamy mashed potatoes",
+      "ingredients": ["potatoes", "fresh cream", "butter", "salt"],
+      "method": ["Peel the potatoes then boil until soft.", "In another pot, warm up your fresh cream and butter.", "Mash the potatoes and add them back into a pot.", "On medium low heat, gradually add the warmed cream and butter mixture into the potatoes, and fold them with a spatula.", "Season to taste."],
+      "imgUrl": "https://westernstarbutter.com.au/content/dam/westernstar/recipe/16556-Classic-Buttery-Mash_standard.jpg"
+    },
+    {
+      "name": "scotch fillet with café de paris butter",
+      "ingredients": ["scotch fillet steak", "butter", "paprika powder", "shallots", "english parsley","lemon juice", "garlic", "chive", "salt", "black pepper"],
+      "method": ["Leave the butter at room temperature or in a warm place to soften it.", "Add all the aromatics, spices and herbs into the butter and mix well.", "Roll the butter into a log using cling film, and refridgerate overnight.","Season the steak with salt and pepper on both sides, then grill to desired doneness.", "Add a slice of Café de Paris butter to finish"],
+      "imgUrl": "https://i.ytimg.com/vi/8yn4HnA5X6M/maxresdefault.jpg"
+    }
+    ]
+}

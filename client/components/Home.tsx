@@ -2,7 +2,7 @@ function Home() {
   return (
     <>
       <div className="app">
-        <h1>Fullstack Boilerplate - with Fruits!</h1>
+        <h2>Welcome to Smart Pantry!</h2>
       </div>
     </>
   )
