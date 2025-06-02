@@ -3,16 +3,20 @@ import { Link } from 'react-router'
 function Nav() {
   return (
     <nav>
-      <ul>
-        <Link to="/">
-          <li>Home</li>
-        </Link>
-        <Link to="/recipelist">
-          <li>Recipes</li>
-        </Link>
-      </ul>
-      <button>Log In</button>
-      <button>Sign Up</button>
+      <div>
+        <ul>
+          <Link to="/">
+            <li>Home</li>
+          </Link>
+          <Link to="/recipelist">
+            <li>Recipes</li>
+          </Link>
+        </ul>
+      </div>
+      <div>
+        <button className="userauth">Log In</button>
+        <button className="userauth">Sign Up</button>
+      </div>
     </nav>
   )
 }

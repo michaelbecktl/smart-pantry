@@ -4,21 +4,52 @@
 
 :root {
   --bg-color: white;
+  --secondary-color: rgb(175, 255, 109);
   --text-color: black; 
+
 }
 
-html, 
+.darkMode {
+  --bg-color: rgb(43, 43, 43);
+  --secondary-color: rgrgb(59, 185, 80);
+  --text-color: white;
+  a {
+    color: var(--text-color)
+  }
+}
+
+
 body {
   font-family: 'Montserrat', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color)
 }
+
+.title {
+  display: inline-block;
+}
+
 
 nav {
   li {
     justify-self: center;
+    display: inline-block;
+    width: 80px;
   }
+  display: flex;
+  .userauth {
+    display: inline-block;
+    justify-self: right;
+    width: 80px;
+    margin: auto 10px;
+  }
+    align-items: center;
 }
-
 .listthumbnail {
   width: 300px;
   height: 200px;
+}
+
+.recipelist {
+  display: flex;
 }
