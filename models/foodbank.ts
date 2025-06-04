@@ -8,6 +8,17 @@ export interface Recipe {
   method: string[]
   imgUrl: string
 }
+
+export interface RecipePrototype {
+  // To be updated with new Database Format in future //
+  name: string
+  description: string
+  yield: number
+  ingredients: Ingredient[]
+  method: string[]
+  imgUrl: string
+}
+
 // Placeholder Type
 export interface Ingredient {
   item: string

@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import data from '../../data.json'
 import { Recipe, RecipeData } from '../../models/foodbank'
 
@@ -10,12 +11,16 @@ function RecipeList() {
         return (
           // Displays each recipe in it's box
           <div key={recipe.name} className="recipelist">
-            <img
-              className="listthumbnail"
-              src={recipe.imgUrl}
-              alt={recipe.name}
-            />
-            <h3>{recipe.name}</h3>
+            <Link to={`/recipelist/${recipe.name}`}>
+              <img
+                className="listthumbnail"
+                src={recipe.imgUrl}
+                alt={recipe.name}
+              />
+            </Link>
+            <Link to={`/recipelist/${recipe.name}`}>
+              <h3>{recipe.name}</h3>
+            </Link>
           </div>
         )
       })}

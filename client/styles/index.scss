@@ -9,6 +9,14 @@
 
 }
 
+a {
+  color: var(--text-color);
+  text-decoration: none;
+  &:hover {
+    opacity: 0.6
+  }
+}
+
 .darkMode {
   --bg-color: rgb(43, 43, 43);
   --secondary-color: rgrgb(59, 185, 80);
@@ -22,7 +30,13 @@
 body {
   font-family: 'Montserrat', sans-serif;
   background-color: var(--bg-color);
-  color: var(--text-color)
+  color: var(--text-color);
+  transition: all 0.2s ease-in-out;
+}
+
+.layout {
+  margin-left: 4%;
+  margin-right: 4%;
 }
 
 .title {
