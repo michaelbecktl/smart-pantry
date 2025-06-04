@@ -9,7 +9,7 @@ export async function up(knex) {
     knex.schema.createTable('recipe', (table) => {
       table.increments('id').primary()
       table.integer('created_by').unsigned()
-      table.foreign('created_by').references('users.id')
+      table.foreign('created_by').references('user.id')
       table.string('name', 80)
       table.string('img_url')
       table.timestamp('created_at').defaultTo(knex.fn.now())
@@ -47,11 +47,11 @@ export async function up(knex) {
 
 export async function down(knex) {
   return Promise.all([
-    knex.schema.dropTable('user'),
-    knex.schema.dropTable('recipe'),
-    knex.schema.dropTable('method'),
-    // knex.schema.dropTable('quantity'),
-    knex.schema.dropTable('ingredients'),
     knex.schema.dropTable('ingredient_data'),
+    knex.schema.dropTable('ingredients'),
+    // knex.schema.dropTable('quantity'),
+    knex.schema.dropTable('method'),
+    knex.schema.dropTable('recipe'),
+    knex.schema.dropTable('user'),
   ])
 }

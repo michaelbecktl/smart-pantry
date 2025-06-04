@@ -1,6 +1,8 @@
+import knex from 'knex'
+
 export async function seed(knex) {
   // Deletes ALL existing entries
-  await knex('user').del()
+  // await knex('user').del()
   // Inserts seed entries
   await knex('user').insert({
     id: 1,
@@ -58,6 +60,53 @@ export async function seed(knex) {
       recipe_id: 1,
       step: 7,
       procedure: 'Finish with chopped parsley, and serve.',
+    },
+  ])
+  await knex('ingredients').del()
+  await knex('ingredients').insert([
+    {
+      recipe_id: 1,
+      ingredient_id: 1,
+      name: 'linguine',
+      amount: 200,
+      metric: 'g',
+    },
+    {
+      recipe_id: 1,
+      ingredient_id: 2,
+      name: 'white wine',
+      amount: 100,
+      metric: 'ml',
+    },
+    { recipe_id: 1, ingredient_id: 3, name: 'clams', amount: 500, metric: 'g' },
+    { recipe_id: 1, ingredient_id: 4, name: 'garlic', amount: 30, metric: 'g' },
+    {
+      recipe_id: 1,
+      ingredient_id: 5,
+      name: 'english parsley',
+      amount: 30,
+      metric: 'g',
+    },
+    {
+      recipe_id: 1,
+      ingredient_id: 6,
+      name: 'chilli flakes',
+      amount: 10,
+      metric: 'g',
+    },
+    {
+      recipe_id: 1,
+      ingredient_id: 7,
+      name: 'cherry tomatoes',
+      amount: 100,
+      metric: 'g',
+    },
+    {
+      recipe_id: 1,
+      ingredient_id: 8,
+      name: 'olive oil',
+      amount: 50,
+      metric: 'ml',
     },
   ])
 }
