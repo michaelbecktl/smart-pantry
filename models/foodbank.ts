@@ -4,6 +4,7 @@ export interface FoodBank {
 
 export interface Recipe {
   name: string
+  createdBy: string
   ingredients: string[] // To be updated with new Database Format in future //
   method: string[]
   imgUrl: string
