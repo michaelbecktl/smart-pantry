@@ -1,13 +1,13 @@
 import express from 'express'
 import * as Path from 'node:path'
 
-import router from './routes/recipe.ts'
+import recipe from './routes/recipe.ts'
 
 const server = express()
 
 server.use(express.json())
 
-server.use('/api/v1/recipe', router)
+server.use('/api/v1/recipe', recipe)
 
 if (process.env.NODE_ENV === 'production') {
   server.use(express.static(Path.resolve('public')))

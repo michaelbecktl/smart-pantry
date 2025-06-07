@@ -4,7 +4,21 @@ import {
   useQueryClient,
   MutationFunction,
 } from '@tanstack/react-query'
-import { getFruits } from '../apis/fruits.ts'
+import { getAllMyRecipes, getRecipeDetails } from '../apis/recipe.ts'
+
+export function useAllMyRecipes(id: number) {
+  return useQuery({
+    queryKey: ['myrecipe'],
+    queryFn: () => getAllMyRecipes(id),
+  })
+}
+
+export function useRecipeDetails(name: string, id: number) {
+  return useQuery({
+    queryKey: ['recipe'],
+    queryFn: () => getRecipeDetails(name, id),
+  })
+}
 
 export function useFruits() {
   const query = useQuery({ queryKey: ['fruits'], queryFn: getFruits })
