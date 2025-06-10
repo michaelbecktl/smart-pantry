@@ -1,19 +1,18 @@
-import knex from 'knex'
-
 export async function seed(knex) {
   // Deletes ALL existing entries
-  // await knex('user').del()
+  await knex('user').del()
   // Inserts seed entries
   await knex('user').insert({
     id: 1,
+    auth_id: 'auth0|68460dacafed1e95b1f4ce71',
     username: 'adminSP',
-    displayname: 'Michael Beck',
+    email: 'michaelbeck1206@gmail.com',
   })
 
   await knex('recipe').del()
   await knex('recipe').insert({
     id: 1,
-    created_by: 1,
+    created_by: 'auth0|68460dacafed1e95b1f4ce71',
     name: 'linguine alle vongole',
     img_url:
       'https://britishop.com/storage/imgcache/linguine-with-clams__1000x600xauto.jpg',

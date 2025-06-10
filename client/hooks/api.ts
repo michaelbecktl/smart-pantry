@@ -6,7 +6,7 @@ import {
 } from '@tanstack/react-query'
 import { getAllMyRecipes, getRecipeDetails } from '../apis/recipe.ts'
 
-export function useAllMyRecipes(id: number) {
+export function useAllMyRecipes(id: string) {
   return useQuery({
     queryKey: ['myrecipe'],
     queryFn: () => getAllMyRecipes(id),

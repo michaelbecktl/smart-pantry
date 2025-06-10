@@ -2,14 +2,15 @@ export async function up(knex) {
   return Promise.all([
     knex.schema.createTable('user', (table) => {
       table.increments('id').primary()
+      table.string('auth_id')
       table.string('username', 30)
       table.string('displayname', 50)
+      table.string('email', 80)
       table.timestamp('created_at').defaultTo(knex.fn.now())
     }),
     knex.schema.createTable('recipe', (table) => {
       table.increments('id').primary()
-      table.integer('created_by').unsigned()
-      table.foreign('created_by').references('user.id')
+      table.string('created_by')
       table.string('name', 80)
       table.string('img_url')
       table.timestamp('created_at').defaultTo(knex.fn.now())

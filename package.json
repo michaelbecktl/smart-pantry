@@ -30,12 +30,18 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@mui/material": "^7.1.0",
-    "express": "^4.17.2",
+    "express": "^4.21.2",
+    "express-jwt": "^7.7.5",
+    "express-jwt-authz": "^2.4.1",
+    "express-openid-connect": "^2.18.1",
+    "jwks-rsa": "^2.1.5",
     "knex": "^2.5.1",
     "sqlite3": "^5.1.6",
-    "superagent": "^10.2.1"
+    "superagent": "^10.2.1",
+    "ui": "^0.2.4"
   },
   "devDependencies": {
+    "@auth0/auth0-react": "^2.2.4",
     "@devacademy/eslint-config": "^1.10.1",
     "@tanstack/eslint-plugin-query": "^5.12.2",
     "@tanstack/react-query": "^5.12.2",

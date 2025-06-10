@@ -3,7 +3,7 @@ import { Recipe, RecipeData } from '../../models/foodbank'
 
 const rootURL = new URL(`/api/v1`, document.baseURI)
 
-export async function getAllMyRecipes(userId: number) {
+export async function getAllMyRecipes(userId: string) {
   const response = await request.get(`${rootURL}/recipe/u/${userId}`)
   return response.body as RecipeData[]
 }

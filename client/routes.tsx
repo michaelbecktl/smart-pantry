@@ -4,12 +4,16 @@ import Layout from './components/Layout'
 import Home from './pages/Home'
 import RecipeView from './pages/RecipeView'
 import MyRecipeList from './pages/MyRecipeList'
+import ProfilePage from './pages/ProfilePage'
+import RecipeList from './pages/RecipeList'
 
 const routes = createRoutesFromElements(
   <Route path="/" element={<Layout />}>
     <Route index element={<Home />} />
-    <Route path="/recipelist/u/:id" element={<MyRecipeList />} />
-    <Route path="/recipelist/:name/:id" element={<RecipeView />} />
+    <Route path="/myrecipes" element={<MyRecipeList />} />
+    <Route path="/recipeslist" element={<RecipeList />} />
+    <Route path="/recipe/:name/:id" element={<RecipeView />} />
+    <Route path="/profile" element={<ProfilePage />} />
   </Route>,
 )
 

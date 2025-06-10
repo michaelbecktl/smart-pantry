@@ -32,7 +32,7 @@ export async function getRecipeDetails(
 ): Promise<Recipe> {
   return connection('recipe')
     .where('name', recipeName)
-    .andWhere('id', userId)
+    .andWhere('created_by', userId)
     .first()
     .select(
       'id',
