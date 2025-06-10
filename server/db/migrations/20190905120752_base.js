@@ -14,6 +14,7 @@ export async function up(knex) {
       table.string('name', 80)
       table.string('img_url')
       table.timestamp('created_at').defaultTo(knex.fn.now())
+      table.boolean('private').defaultTo(false)
     }),
     knex.schema.createTable('method', (table) => {
       table.integer('recipe_id').unsigned()

@@ -1,12 +1,9 @@
 import { Link } from 'react-router'
-import { useAllMyRecipes } from '../hooks/api'
+import { useAllRecipes } from '../hooks/api'
 import * as fn from '../components/Functions.tsx'
-import { useAuth0 } from '@auth0/auth0-react'
 
-function MyRecipeList() {
-  const userId = useAuth0().user?.sub as string // Get User ID
-
-  const list = useAllMyRecipes(userId)
+function RecipeList() {
+  const list = useAllRecipes()
 
   if (list.isPending) {
     return
@@ -40,4 +37,4 @@ function MyRecipeList() {
   )
 }
 
-export default MyRecipeList
+export default RecipeList

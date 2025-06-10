@@ -23,7 +23,7 @@ function Nav() {
           <Link to="/">
             <li>Home</li>
           </Link>
-          <Link to="/recipelist">
+          <Link to="/recipeslist">
             <li>Recipes</li>
           </Link>
           <IfAuthenticated>

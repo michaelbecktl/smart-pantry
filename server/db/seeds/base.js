@@ -16,6 +16,7 @@ export async function seed(knex) {
     name: 'linguine alle vongole',
     img_url:
       'https://britishop.com/storage/imgcache/linguine-with-clams__1000x600xauto.jpg',
+    private: true,
   })
 
   await knex('method').del()

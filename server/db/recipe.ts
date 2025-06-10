@@ -12,6 +12,18 @@ import connection from './connection.ts'
 //     )
 // }
 
+export async function getAllRecipes(): Promise<Recipe[]> {
+  return connection('recipe')
+    .where('private', false)
+    .select(
+      'id',
+      'created_by as createdBy',
+      'name',
+      'img_url as imgUrl',
+      'created_at as createdAt',
+    )
+}
+
 export async function getAllMyRecipes(
   userId: number | string,
 ): Promise<Recipe[]> {

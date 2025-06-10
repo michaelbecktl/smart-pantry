@@ -5,6 +5,21 @@ import * as db from '../db/recipe.ts'
 const router = Router()
 
 // My Recipes //
+
+router.get('/', async (req, res) => {
+  try {
+    const response = await db.getAllRecipes()
+    if (response == undefined) {
+      res.status(404)
+    } else {
+      res.json(response)
+    }
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ message: 'Something went wrong' })
+  }
+})
+
 router.get('/u/:id', async (req, res) => {
   try {
     const id = req.params.id
