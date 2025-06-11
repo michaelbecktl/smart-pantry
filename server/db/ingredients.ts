@@ -15,9 +15,6 @@ export async function getIngredientsList(
     )
 }
 
-export async function addIngredientList(
-  ingredients: Ingredient[],
-  id: number | string,
-) {
-  return connection('ingredients').where('recipe_id', id).insert(ingredients)
+export async function addIngredientList(ingredients: Ingredient[]) {
+  return connection('ingredients').insert(ingredients)
 }

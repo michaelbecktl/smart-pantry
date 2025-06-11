@@ -51,12 +51,15 @@ export async function addNewRecipe(newRecipe: NewRecipe) {
     created_by: createdBy,
   })
   const { id } = response.body
-  console.log(id)
-  await request
-    .post(`${rootURL}/ingredients/${id}`)
-    .send(JSON.stringify(ingredient))
-  await request.post(`${rootURL}/method/${id}`).send(JSON.stringify(method))
-  return id
+  const newIngredient = ingredient.map((item) => {
+    return { ...item, recipe_id: id } // Adding Retrieved ID into POST object
+  })
+  const newMethod = method.map((item) => {
+    return { procedure: item, recipe_id: id } // Adding Retrieved ID into POST object
+  })
+  await request.post(`${rootURL}/ingredients/`).send(newIngredient)
+  await request.post(`${rootURL}/method/`).send(newMethod)
+  return { id: id, name: name }
 }
 
 // name: '',

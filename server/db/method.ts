@@ -9,6 +9,6 @@ export async function getMethodList(
     .select('recipe_id as recipeId', 'step', 'procedure')
 }
 
-export async function addMethodList(method: string[], id: number | string) {
-  return connection('method').where('recipe_id', id).insert(method)
+export async function addMethodList(method: Method) {
+  return connection('method').insert(method)
 }

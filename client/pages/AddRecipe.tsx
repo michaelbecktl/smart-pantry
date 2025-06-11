@@ -72,8 +72,9 @@ function AddRecipe() {
       method: method,
       createdBy: user?.sub as string,
     }
-    const id: number = await addMutation.mutate(newRecipe)
-    navigate(`/recipe/${id}`)
+    addMutation.mutate(newRecipe)
+    if (addMutation.isSuccess)
+      navigate(`/recipe/${addMutation.data.name}/${addMutation.data.id}`)
   }
 
   return (

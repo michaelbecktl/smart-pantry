@@ -38,7 +38,7 @@ export interface RecipeData extends Recipe {
 
 export interface Method {
   recipeId: number
-  step: number
+  step?: number
   procedure: string
 }
 
