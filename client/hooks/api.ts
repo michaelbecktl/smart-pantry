@@ -4,30 +4,50 @@ import {
   useQueryClient,
   MutationFunction,
 } from '@tanstack/react-query'
-import {
-  getAllMyRecipes,
-  getAllRecipes,
-  getRecipeDetails,
-} from '../apis/recipe.ts'
+import * as API from '../apis/recipe.ts'
 
 export function useAllRecipes() {
   return useQuery({
     queryKey: ['allrecipes'],
-    queryFn: () => getAllRecipes(),
+    queryFn: () => API.getAllRecipes(),
   })
 }
 
 export function useAllMyRecipes(id: string) {
   return useQuery({
     queryKey: ['myrecipe'],
-    queryFn: () => getAllMyRecipes(id),
+    queryFn: () => API.getAllMyRecipes(id),
   })
 }
 
 export function useRecipeDetails(name: string, id: number) {
   return useQuery({
     queryKey: ['recipe'],
-    queryFn: () => getRecipeDetails(name, id),
+    queryFn: () => API.getRecipeDetails(name, id),
+  })
+}
+
+export function useRecipeIngredients(id: number) {
+  return useQuery({
+    queryKey: ['ingredients'],
+    queryFn: () => API.getIngredientList(id),
+  })
+}
+
+export function useRecipeMethod(id: number) {
+  return useQuery({
+    queryKey: ['method'],
+    queryFn: () => API.getMethodList(id),
+  })
+}
+
+export function useAddRecipe() {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: (newRecipe) => API.addNewRecipe(newRecipe),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['allRecipes'] })
+    },
   })
 }
 

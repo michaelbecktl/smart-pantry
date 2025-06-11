@@ -14,7 +14,6 @@ export async function addNewUser(newUser: NewUser, token: string) {
     displayname: newUser.displayname,
     email: newUser.email,
   }
-  console.log(token)
   return request
     .post(`${rootURL}/user/`)
     .set('Authorization', `Bearer ${token}`)

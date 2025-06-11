@@ -4,10 +4,11 @@ export interface FoodBank {
 
 export interface Recipe {
   name: string
+  description: string
   createdBy: string
-  ingredients: string[] // To be updated with new Database Format in future //
-  method: string[]
+  createdAt: string
   imgUrl: string
+  hidden: boolean
 }
 
 export interface RecipePrototype {
@@ -22,10 +23,21 @@ export interface RecipePrototype {
 
 // Placeholder Type
 export interface Ingredient {
-  item: string
+  name: string
   amount: number
+  metric: string
 }
 
+export interface IngredientData extends Ingredient {
+  recipeId: number
+  ingredientId: number
+}
 export interface RecipeData extends Recipe {
   id: number
+}
+
+export interface Method {
+  recipeId: number
+  step: number
+  procedure: string
 }

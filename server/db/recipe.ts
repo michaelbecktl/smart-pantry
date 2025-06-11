@@ -1,26 +1,17 @@
-import { Recipe } from '../../models/foodbank.ts'
+import { Recipe, RecipeData } from '../../models/foodbank.ts'
 import connection from './connection.ts'
 
-// export async function getPublicRecipes(): Promise<Recipe[]> {
-//   return connection('recipe')
-//     .select(
-//       'id',
-//       'created_by as createdBy',
-//       'name',
-//       'img_url as imgUrl',
-//       'created_at as createdAt',
-//     )
-// }
-
-export async function getAllRecipes(): Promise<Recipe[]> {
+export async function getAllRecipes(): Promise<RecipeData[]> {
   return connection('recipe')
-    .where('private', false)
+    .where('hidden', false)
     .select(
       'id',
+      'description',
       'created_by as createdBy',
       'name',
       'img_url as imgUrl',
       'created_at as createdAt',
+      'hidden',
     )
 }
 
@@ -31,26 +22,34 @@ export async function getAllMyRecipes(
     .where('created_by', userId)
     .select(
       'id',
+      'description',
       'created_by as createdBy',
       'name',
       'img_url as imgUrl',
       'created_at as createdAt',
+      'hidden',
     )
 }
 
 export async function getRecipeDetails(
   recipeName: string,
-  userId: number | string,
+  recipeId: number | string,
 ): Promise<Recipe> {
   return connection('recipe')
     .where('name', recipeName)
-    .andWhere('created_by', userId)
+    .andWhere('id', recipeId)
     .first()
     .select(
       'id',
+      'description',
       'created_by as createdBy',
       'name',
       'img_url as imgUrl',
       'created_at as createdAt',
+      'hidden',
     )
+}
+
+export async function addNewRecipe(newRecipe: Recipe): Promise<RecipeData> {
+  return connection('recipe').insert(newRecipe).returning('*').first()
 }

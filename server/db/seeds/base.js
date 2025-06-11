@@ -14,9 +14,11 @@ export async function seed(knex) {
     id: 1,
     created_by: 'auth0|68460dacafed1e95b1f4ce71',
     name: 'linguine alle vongole',
+    description:
+      'Classic pasta dish with a light white wine sauce and fresh clams.',
     img_url:
       'https://britishop.com/storage/imgcache/linguine-with-clams__1000x600xauto.jpg',
-    private: true,
+    hidden: true,
   })
 
   await knex('method').del()

@@ -18,25 +18,30 @@ function MyRecipeList() {
   console.log(list.data)
 
   return (
-    <div>
-      {list.data.map((recipe) => {
-        return (
-          // Displays each recipe in it's box
-          <div key={recipe.name} className="recipelist">
-            <Link to={`/recipe/${recipe.name}/${recipe.id}`}>
-              <img
-                className="listthumbnail"
-                src={recipe.imgUrl}
-                alt={recipe.name}
-              />
-            </Link>
-            <Link to={`/recipe/${recipe.name}/${recipe.id}`}>
-              <h3>{fn.capitaliseEvery(recipe.name)}</h3>
-            </Link>
-          </div>
-        )
-      })}
-    </div>
+    <>
+      <div>
+        <Link to="/newrecipe">Add New Recipe</Link>
+      </div>
+      <div>
+        {list.data.map((recipe) => {
+          return (
+            // Displays each recipe in it's box
+            <div key={recipe.name} className="recipelist">
+              <Link to={`/recipe/${recipe.name}/${recipe.id}`}>
+                <img
+                  className="listthumbnail"
+                  src={recipe.imgUrl}
+                  alt={recipe.name}
+                />
+              </Link>
+              <Link to={`/recipe/${recipe.name}/${recipe.id}`}>
+                <h3>{fn.capitaliseEvery(recipe.name)}</h3>
+              </Link>
+            </div>
+          )
+        })}
+      </div>
+    </>
   )
 }
 
