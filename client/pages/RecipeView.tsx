@@ -7,6 +7,7 @@ import {
 } from '../hooks/api'
 import RecipeGuide from '../components/RecipeGuide'
 import { useState } from 'react'
+import RecipeCost from '../components/RecipeCost'
 
 function RecipeView() {
   const [tab, setTab] = useState('RecipeGuide')
@@ -33,13 +34,32 @@ function RecipeView() {
     return <p>This recipe is hidden.</p>
   }
 
+  let content
+  switch (tab) {
+    case 'RecipeGuide':
+      content = <RecipeGuide id={id} />
+      break
+    case 'CostGuide':
+      content = <RecipeCost id={id} />
+      break
+    default:
+      content = <RecipeGuide id={id} />
+  }
+
+  const handleRecipe = () => setTab('RecipeGuide')
+  const handleCost = () => setTab('CostGuide')
+
   return (
-    <div>
-      <img src={recipe.data.imgUrl} alt={recipe.data.name} />
-      <h2>{recipe.data.name}</h2>
-      <p>{recipe.data.description}</p>
-      <RecipeGuide id={id} />
-    </div>
+    <>
+      <div>
+        <img src={recipe.data.imgUrl} alt={recipe.data.name} />
+        <h2>{recipe.data.name}</h2>
+        <p>{recipe.data.description}</p>
+        <button onClick={handleRecipe}>Recipe</button>
+        <button onClick={handleCost}>Costing</button>
+        {content}
+      </div>
+    </>
   )
 }
 

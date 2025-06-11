@@ -22,6 +22,20 @@ export function useAllMyRecipes(id: string) {
   })
 }
 
+export function useRecipeMutation<TData = unknown, TVariables = unknown>(
+  mutationFn: MutationFunction<TData, TVariables>,
+) {
+  const queryClient = useQueryClient()
+  const mutation = useMutation({
+    mutationFn,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['fruits'] })
+    },
+  })
+
+  return mutation
+}
+
 export function useRecipeDetails(name: string, id: number) {
   return useQuery({
     queryKey: [name],
@@ -55,27 +69,13 @@ export function useAddRecipe() {
   })
 }
 
-export function useFruits() {
-  const query = useQuery({ queryKey: ['fruits'], queryFn: getFruits })
-  return {
-    ...query,
-    // Extra queries go here e.g. addFruit: useAddFruit()
-  }
-}
-
-export function useFruitsMutation<TData = unknown, TVariables = unknown>(
-  mutationFn: MutationFunction<TData, TVariables>,
-) {
-  const queryClient = useQueryClient()
-  const mutation = useMutation({
-    mutationFn,
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['fruits'] })
-    },
-  })
-
-  return mutation
-}
+// export function useFruits() {
+//   const query = useQuery({ queryKey: ['fruits'], queryFn: getFruits })
+//   return {
+//     ...query,
+//     // Extra queries go here e.g. addFruit: useAddFruit()
+//   }
+// }
 
 // Query functions go here e.g. useAddFruit
 /* function useAddFruit() {

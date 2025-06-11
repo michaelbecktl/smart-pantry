@@ -111,4 +111,33 @@ export async function seed(knex) {
       metric: 'ml',
     },
   ])
+  await knex('ingredient_data').del()
+  await knex('ingredient_data').insert([
+    {
+      name: 'linguine',
+      data_cost: 0.005,
+    },
+    {
+      name: 'white wine',
+      data_cost: 0.026,
+    },
+    { name: 'clams', data_cost: 0.01 },
+    { name: 'garlic', data_cost: 0.009 },
+    {
+      name: 'english parsley',
+      data_cost: 0.266,
+    },
+    {
+      name: 'chilli flakes',
+      data_cost: 0.1,
+    },
+    {
+      name: 'cherry tomatoes',
+      data_cost: 0.019,
+    },
+    {
+      name: 'olive oil',
+      data_cost: 0.02,
+    },
+  ])
 }

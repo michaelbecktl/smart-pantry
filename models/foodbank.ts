@@ -51,3 +51,12 @@ export interface NewRecipe {
   ingredient: Ingredient[]
   method: string[]
 }
+
+export interface Price {
+  name: string
+  metric: string
+  month: string
+  dataCost: number
+  userCost: number
+  avgCost: number
+}

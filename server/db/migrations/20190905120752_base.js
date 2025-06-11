@@ -36,14 +36,15 @@ export async function up(knex) {
       table.string('name')
       table.integer('amount')
       table.string('metric')
+      table.decimal('unit_price', 10, 3)
     }),
     knex.schema.createTable('ingredient_data', (table) => {
       table.string('name').primary()
       table.string('metric')
       table.string('month')
-      table.decimal('data_cost', 10, 2)
-      table.decimal('user_cost', 10, 2)
-      table.decimal('avg_cost', 10, 2)
+      table.decimal('data_cost', 10, 3)
+      table.decimal('user_cost', 10, 3)
+      table.decimal('avg_cost', 10, 3)
     }),
   ])
 }

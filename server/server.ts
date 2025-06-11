@@ -5,6 +5,7 @@ import recipe from './routes/recipe.ts'
 import user from './routes/user.ts'
 import ingredients from './routes/ingredients.ts'
 import method from './routes/method.ts'
+import price from './routes/price.ts'
 
 const server = express()
 
@@ -14,6 +15,7 @@ server.use('/api/v1/recipe', recipe)
 server.use('/api/v1/user', user)
 server.use('/api/v1/ingredients', ingredients)
 server.use('/api/v1/method', method)
+server.use('/api/v1/price', price)
 
 if (process.env.NODE_ENV === 'production') {
   server.use(express.static(Path.resolve('public')))
