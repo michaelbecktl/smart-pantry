@@ -14,3 +14,10 @@ export async function getIngredientsList(
       'metric',
     )
 }
+
+export async function addIngredientList(
+  ingredients: Ingredient[],
+  id: number | string,
+) {
+  return connection('ingredients').where('recipe_id', id).insert(ingredients)
+}

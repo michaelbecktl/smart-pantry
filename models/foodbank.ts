@@ -41,3 +41,13 @@ export interface Method {
   step: number
   procedure: string
 }
+
+export interface NewRecipe {
+  name: string
+  description: string
+  createdBy: string
+  imgUrl: string
+  hidden: boolean
+  ingredient: Ingredient[]
+  method: string[]
+}

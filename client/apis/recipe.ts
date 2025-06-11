@@ -2,6 +2,7 @@ import request from 'superagent'
 import {
   IngredientData,
   Method,
+  NewRecipe,
   Recipe,
   RecipeData,
 } from '../../models/foodbank'
@@ -39,17 +40,22 @@ export async function getMethodList(recipeId: number) {
 
 // POST requests //
 
-export async function addNewRecipe(newRecipe) {
-  const { name, description, imgUrl, ingredient, hidden, method } = newRecipe
+export async function addNewRecipe(newRecipe: NewRecipe) {
+  const { name, description, imgUrl, createdBy, ingredient, hidden, method } =
+    newRecipe
   const response = await request.post(`${rootURL}/recipe`).send({
     name: name,
     description: description,
-    imgUrl: imgUrl,
+    img_url: imgUrl,
     hidden: hidden,
+    created_by: createdBy,
   })
-  const id = response.body.id
-  await request.post(`${rootURL}/ingredients/${id}`)
-  await request.post(`${rootURL}/method/${id}`)
+  const { id } = response.body
+  console.log(id)
+  await request
+    .post(`${rootURL}/ingredients/${id}`)
+    .send(JSON.stringify(ingredient))
+  await request.post(`${rootURL}/method/${id}`).send(JSON.stringify(method))
   return id
 }
 

@@ -56,10 +56,11 @@ router.get('/:name/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const response = await db.addNewRecipe(req.body)
+    const id = response[0]
     if (response == undefined) {
       res.status(404)
     } else {
-      res.json(response)
+      res.json(id)
     }
   } catch (error) {
     console.log(error)

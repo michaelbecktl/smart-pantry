@@ -5,6 +5,7 @@ import {
   MutationFunction,
 } from '@tanstack/react-query'
 import * as API from '../apis/recipe.ts'
+import { NewRecipe } from '../../models/foodbank.ts'
 
 export function useAllRecipes() {
   return useQuery({
@@ -44,7 +45,7 @@ export function useRecipeMethod(id: number) {
 export function useAddRecipe() {
   const queryClient = useQueryClient()
   return useMutation({
-    mutationFn: (newRecipe) => API.addNewRecipe(newRecipe),
+    mutationFn: (newRecipe: NewRecipe) => API.addNewRecipe(newRecipe),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['allRecipes'] })
     },

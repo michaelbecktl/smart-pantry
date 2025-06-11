@@ -50,6 +50,6 @@ export async function getRecipeDetails(
     )
 }
 
-export async function addNewRecipe(newRecipe: Recipe): Promise<RecipeData> {
-  return connection('recipe').insert(newRecipe).returning('*').first()
+export async function addNewRecipe(newRecipe: Recipe): Promise<RecipeData[]> {
+  return connection('recipe').insert(newRecipe).returning('id')
 }

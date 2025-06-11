@@ -22,5 +22,20 @@ router.get('/:id', async (req, res) => {
 })
 
 // -------- POST -------- //
+router.post('/:id', async (req, res) => {
+  try {
+    const id = req.params.id
+    const response = await db.addIngredientList(req.body, id)
+    console.log(response)
+    if (response == undefined) {
+      res.status(404)
+    } else {
+      res.status(200)
+    }
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ message: 'Something went wrong' })
+  }
+})
 
 export default router

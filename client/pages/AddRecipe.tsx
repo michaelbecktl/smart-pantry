@@ -3,8 +3,11 @@ import { Ingredient } from '../../models/foodbank'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useAddRecipe } from '../hooks/api'
 import { useNavigate } from 'react-router'
+import { useAuth0 } from '@auth0/auth0-react'
 
 function AddRecipe() {
+  const { user } = useAuth0()
+
   const [formState, setFormState] = useState({
     name: '',
     description: '',
@@ -15,11 +18,16 @@ function AddRecipe() {
     metric: 'g',
     method: '',
   })
+
   const [ingredients, setIngredients] = useState<Ingredient[]>([])
   const [method, setMethod] = useState<string[]>([])
 
-  const addRecipe = useAddRecipe
   const navigate = useNavigate()
+  const addMutation = useAddRecipe()
+
+  if (!user?.sub) {
+    return <p>Loading...</p>
+  }
 
   function handleChange(
     event:
@@ -62,15 +70,16 @@ function AddRecipe() {
       hidden: formState.hidden,
       ingredient: ingredients,
       method: method,
+      createdBy: user?.sub as string,
     }
-    const id: number = await addRecipe(newRecipe)
+    const id: number = await addMutation.mutate(newRecipe)
     navigate(`/recipe/${id}`)
   }
 
   return (
     <>
       <div>
-        <form onSubmit="useAddRecipe">
+        <form onSubmit={handleSubmit}>
           <label htmlFor="name">Recipe Name: </label>
           <input
             id="name"

@@ -8,3 +8,7 @@ export async function getMethodList(
     .where('recipe_id', recipeId)
     .select('recipe_id as recipeId', 'step', 'procedure')
 }
+
+export async function addMethodList(method: string[], id: number | string) {
+  return connection('method').where('recipe_id', id).insert(method)
+}
