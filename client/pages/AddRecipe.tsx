@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import { Ingredient } from '../../models/foodbank'
-import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useAddRecipe } from '../hooks/api'
-import { useNavigate } from 'react-router'
 import { useAuth0 } from '@auth0/auth0-react'
 
 function AddRecipe() {
@@ -22,7 +20,6 @@ function AddRecipe() {
   const [ingredients, setIngredients] = useState<Ingredient[]>([])
   const [method, setMethod] = useState<string[]>([])
 
-  const navigate = useNavigate()
   const addMutation = useAddRecipe()
 
   if (!user?.sub) {
@@ -73,8 +70,7 @@ function AddRecipe() {
       createdBy: user?.sub as string,
     }
     addMutation.mutate(newRecipe)
-    if (addMutation.isSuccess)
-      navigate(`/recipe/${addMutation.data.name}/${addMutation.data.id}`)
+    navigate(`/recipe/${addMutation.data.name}/${addMutation.data.id}`)
   }
 
   return (

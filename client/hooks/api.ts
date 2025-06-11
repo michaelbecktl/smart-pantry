@@ -6,24 +6,25 @@ import {
 } from '@tanstack/react-query'
 import * as API from '../apis/recipe.ts'
 import { NewRecipe } from '../../models/foodbank.ts'
+import { useNavigate } from 'react-router'
 
 export function useAllRecipes() {
   return useQuery({
-    queryKey: ['allrecipes'],
+    queryKey: ['allRecipes'],
     queryFn: () => API.getAllRecipes(),
   })
 }
 
 export function useAllMyRecipes(id: string) {
   return useQuery({
-    queryKey: ['myrecipe'],
+    queryKey: ['myRecipe'],
     queryFn: () => API.getAllMyRecipes(id),
   })
 }
 
 export function useRecipeDetails(name: string, id: number) {
   return useQuery({
-    queryKey: ['recipe'],
+    queryKey: [name],
     queryFn: () => API.getRecipeDetails(name, id),
   })
 }
@@ -43,11 +44,13 @@ export function useRecipeMethod(id: number) {
 }
 
 export function useAddRecipe() {
+  const navigate = useNavigate()
   const queryClient = useQueryClient()
   return useMutation({
     mutationFn: (newRecipe: NewRecipe) => API.addNewRecipe(newRecipe),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['allRecipes'] })
+    onSuccess: (res) => {
+      queryClient.invalidateQueries({ queryKey: ['allRecipes', 'myRecipes'] })
+      navigate(`/recipe/${res.name}/${res.id}`)
     },
   })
 }
