@@ -14,6 +14,7 @@ export async function up(knex) {
       table.string('name', 80)
       table.string('description')
       table.string('img_url')
+      table.integer('portion')
       table.timestamp('created_at').defaultTo(knex.fn.now())
       table.boolean('hidden').defaultTo(false)
     }),

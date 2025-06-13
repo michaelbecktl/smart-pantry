@@ -8,6 +8,7 @@ export interface Recipe {
   createdBy: string
   createdAt: string
   imgUrl: string
+  portion: number
   hidden: boolean
 }
 
@@ -15,10 +16,11 @@ export interface RecipePrototype {
   // To be updated with new Database Format in future //
   name: string
   description: string
-  yield: number
+  portion: number
   ingredients: Ingredient[]
   method: string[]
   imgUrl: string
+  portion: number
 }
 
 // Placeholder Type
@@ -47,6 +49,7 @@ export interface NewRecipe {
   description: string
   createdBy: string
   imgUrl: string
+  portion: number
   hidden: boolean
   ingredient: Ingredient[]
   method: string[]

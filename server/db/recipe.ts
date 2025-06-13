@@ -11,13 +11,14 @@ export async function getAllRecipes(): Promise<RecipeData[]> {
       'name',
       'img_url as imgUrl',
       'created_at as createdAt',
+      'portion',
       'hidden',
     )
 }
 
 export async function getAllMyRecipes(
   userId: number | string,
-): Promise<Recipe[]> {
+): Promise<RecipeData[]> {
   return connection('recipe')
     .where('created_by', userId)
     .select(
@@ -27,6 +28,7 @@ export async function getAllMyRecipes(
       'name',
       'img_url as imgUrl',
       'created_at as createdAt',
+      'portion',
       'hidden',
     )
 }
@@ -34,7 +36,7 @@ export async function getAllMyRecipes(
 export async function getRecipeDetails(
   recipeName: string,
   recipeId: number | string,
-): Promise<Recipe> {
+): Promise<RecipeData> {
   return connection('recipe')
     .where('name', recipeName)
     .andWhere('id', recipeId)
@@ -45,6 +47,7 @@ export async function getRecipeDetails(
       'created_by as createdBy',
       'name',
       'img_url as imgUrl',
+      'portion',
       'created_at as createdAt',
       'hidden',
     )

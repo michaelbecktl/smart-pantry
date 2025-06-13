@@ -12,4 +12,5 @@ export async function getPriceByName(name: string): Promise<Price[]> {
       'user_cost as userCost',
       'avg_cost as avgCost',
     )
+    .first()
 }

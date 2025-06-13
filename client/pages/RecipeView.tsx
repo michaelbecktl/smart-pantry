@@ -37,13 +37,13 @@ function RecipeView() {
   let content
   switch (tab) {
     case 'RecipeGuide':
-      content = <RecipeGuide id={id} />
+      content = <RecipeGuide data={recipe.data} />
       break
     case 'CostGuide':
-      content = <RecipeCost id={id} />
+      content = <RecipeCost data={recipe.data} />
       break
     default:
-      content = <RecipeGuide id={id} />
+      content = <RecipeGuide data={recipe.data} />
   }
 
   const handleRecipe = () => setTab('RecipeGuide')
@@ -54,6 +54,7 @@ function RecipeView() {
       <div>
         <img src={recipe.data.imgUrl} alt={recipe.data.name} />
         <h2>{recipe.data.name}</h2>
+        <p>Yields: {recipe.data.portion}</p>
         <p>{recipe.data.description}</p>
         <button onClick={handleRecipe}>Recipe</button>
         <button onClick={handleCost}>Costing</button>

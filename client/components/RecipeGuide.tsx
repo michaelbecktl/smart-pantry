@@ -1,13 +1,13 @@
-import { IngredientData } from '../../models/foodbank'
+import { IngredientData, RecipeData } from '../../models/foodbank'
 import { useRecipeIngredients, useRecipeMethod } from '../hooks/api'
 
 interface Props {
-  id: number
+  data: RecipeData
 }
 
 function RecipeGuide(props: Props) {
-  const ingredients = useRecipeIngredients(props.id)
-  const method = useRecipeMethod(props.id)
+  const ingredients = useRecipeIngredients(props.data.id)
+  const method = useRecipeMethod(props.data.id)
 
   if (ingredients.isPending || method.isPending) {
     return

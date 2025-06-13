@@ -10,6 +10,7 @@ function AddRecipe() {
     name: '',
     description: '',
     imgUrl: '',
+    portion: Number(''),
     ingredient: '',
     hidden: false,
     amount: Number(''),
@@ -64,13 +65,13 @@ function AddRecipe() {
       name: formState.name,
       description: formState.description,
       imgUrl: formState.imgUrl,
+      portion: formState.portion,
       hidden: formState.hidden,
       ingredient: ingredients,
       method: method,
       createdBy: user?.sub as string,
     }
     addMutation.mutate(newRecipe)
-    navigate(`/recipe/${addMutation.data.name}/${addMutation.data.id}`)
   }
 
   return (
@@ -84,6 +85,15 @@ function AddRecipe() {
             onChange={handleChange}
             value={formState.name}
             placeholder="Name of recipe"
+          />
+          <br />
+          <label htmlFor="portion">Yield: </label>
+          <input
+            id="portion"
+            type="number"
+            onChange={handleChange}
+            value={formState.portion}
+            placeholder="1"
           />
           <br />
           <label htmlFor="description">Description: </label>

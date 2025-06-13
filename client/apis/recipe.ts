@@ -3,7 +3,6 @@ import {
   IngredientData,
   Method,
   NewRecipe,
-  Recipe,
   RecipeData,
 } from '../../models/foodbank'
 
@@ -25,7 +24,7 @@ export async function getRecipeDetails(recipeName: string, recipeId: number) {
   const response = await request.get(
     `${rootURL}/recipe/${recipeName}/${recipeId}`,
   )
-  return response.body as Recipe
+  return response.body as RecipeData
 }
 
 export async function getIngredientList(recipeId: number) {
@@ -41,13 +40,22 @@ export async function getMethodList(recipeId: number) {
 // POST requests //
 
 export async function addNewRecipe(newRecipe: NewRecipe) {
-  const { name, description, imgUrl, createdBy, ingredient, hidden, method } =
-    newRecipe
+  const {
+    name,
+    description,
+    imgUrl,
+    portion,
+    createdBy,
+    ingredient,
+    hidden,
+    method,
+  } = newRecipe
   const response = await request.post(`${rootURL}/recipe`).send({
     name: name,
     description: description,
     img_url: imgUrl,
     hidden: hidden,
+    portion: portion,
     created_by: createdBy,
   })
   const { id } = response.body

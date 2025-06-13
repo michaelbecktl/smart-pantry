@@ -18,6 +18,7 @@ export async function seed(knex) {
       'Classic pasta dish with a light white wine sauce and fresh clams.',
     img_url:
       'https://britishop.com/storage/imgcache/linguine-with-clams__1000x600xauto.jpg',
+    portion: 2,
     hidden: true,
   })
 
@@ -86,7 +87,7 @@ export async function seed(knex) {
       recipe_id: 1,
       ingredient_id: 5,
       name: 'english parsley',
-      amount: 30,
+      amount: 5,
       metric: 'g',
     },
     {
